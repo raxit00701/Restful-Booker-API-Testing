@@ -1,0 +1,72 @@
+Started by user admin
+Running as SYSTEM
+Building in workspace C:\Users\raxit\.jenkins\workspace\Postman_Restful_booker
+[Postman_Restful_booker] $ cmd /c call C:\Users\raxit\AppData\Local\Temp\jenkins3793357274524761467.bat
+
+C:\Users\raxit\.jenkins\workspace\Postman_Restful_booker>newman run "https://api.getpostman.com/collections/44003382-5bda8896-dbf8-490c-b18b-153762cb38d2?access_key=PMAT-01K3K0YM50REHNND83MGVYAB5Y"   --reporters cli,junit   --reporter-junit-export "newman-report.xml" 
+newman
+
+New Collection
+
+→ Auth
+  POST https://restful-booker.herokuapp.com/auth [200 OK, 775B, 1979ms]
+
+→ GetBookingIDs
+  GET https://restful-booker.herokuapp.com/booking [200 OK, 1.64kB, 276ms]
+  √  Status code is 200
+  √  Response is JSON
+  √  Response is an array with bookingid objects
+
+→ GetBookings
+  GET https://restful-booker.herokuapp.com/booking?id=679 [200 OK, 1.68kB, 275ms]
+
+→ Create Booking
+  POST https://restful-booker.herokuapp.com/booking [500 Internal Server Error, 777B, 273ms]
+
+→ Update booking
+  POST https://restful-booker.herokuapp.com/auth [200 OK, 770B, 275ms]
+  ┌
+  │ 'New token set:', '1b459c843fcb385'
+  └
+  PUT https://restful-booker.herokuapp.com/booking/679 [400 Bad Request, 756B, 525ms]
+
+→ PartialUpateBooking
+  POST https://restful-booker.herokuapp.com/auth [200 OK, 770B, 273ms]
+  ┌
+  │ 'New token set:', '3fac2c2f3f25867'
+  └
+  PATCH https://restful-booker.herokuapp.com/booking/679 [405 Method Not Allowed, 771B, 275ms]
+
+→ Delete booking
+  POST https://restful-booker.herokuapp.com/auth [200 OK, 774B, 273ms]
+  ┌
+  │ 'New token saved:', 'afd0d0b1ae4fd40'
+  └
+  POST https://restful-booker.herokuapp.com/booking [200 OK, 938B, 275ms]
+  ┌
+  │ 'New bookingid saved:', 97
+  └
+  DELETE https://restful-booker.herokuapp.com/booking/97 [201 Created, 751B, 274ms]
+  √  Status code is 201 or 200
+  √  Response body is empty or OK
+
+┌─────────────────────────┬─────────────────────┬─────────────────────┐
+│                         │            executed │              failed │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              iterations │                   1 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│                requests │                  11 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│            test-scripts │                   2 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│      prerequest-scripts │                   4 │                   0 │
+├─────────────────────────┼─────────────────────┼─────────────────────┤
+│              assertions │                   5 │                   0 │
+├─────────────────────────┴─────────────────────┴─────────────────────┤
+│ total run duration: 5.5s                                            │
+├─────────────────────────────────────────────────────────────────────┤
+│ total data received: 2.18kB (approx)                                │
+├─────────────────────────────────────────────────────────────────────┤
+│ average response time: 452ms [min: 273ms, max: 1979ms, s.d.: 488ms] │
+└─────────────────────────────────────────────────────────────────────┘
+Finished: SUCCESS
